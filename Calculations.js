@@ -1,40 +1,41 @@
 const {profit, revenue, abidos, oreha, greenTOBlue} = require('./Functions')
 
-const Abidos = 77
-const Oreha = 52
+const Abidos = 77.0
+const Oreha = 52.0
 
 // Excavating
-let abidosRelic = 850 / 100;
-let orehaRelic = 800 / 100;
-let rareRelic = 120 / 100;
-let ancientRelic = 58 / 100;
+let abidosRelic = 850.0 / 100;
+let orehaRelic = 800.0 / 100;
+let rareRelic = 120.0 / 100;
+let ancientRelic = 58.0 / 100;
 
-// Fishing 
-let orehaSolarCarp = 843 / 100;
-let abidosSolarCarp = 800 / 100;
-let redFleshFish = 121 / 100;
-let fish = 60 / 100;
+// Fishing
+let orehaSolarCarp = 843.0 / 100;
+let abidosSolarCarp = 800.0 / 100;
+let redFleshFish = 121.0 / 100;
+let fish = 60.0 / 100;
 
 // Foraging
-let abidosWildFlower = 800 / 100;
-let shyWildFlower = 126 / 100;
-let wildFlower = 64 / 100;
+let abidosWildFlower = 800.0 / 100;
+let shyWildFlower = 126.0 / 100;
+let wildFlower = 64.0 / 100;
 
-// Logging 
-let abidosTimber = 799 / 100;
-let tenderTimber = 117 / 100;
-let Timber = 58 / 100;
+// Logging
+let abidosTimber = 799.0 / 100;
+let tenderTimber = 117.0 / 100;
+let Timber = 58.0 / 100;
 
 // Mining
-let abidosIronOre = 825 / 100;
-let heavyIronOre = 118 / 100;
-let ironOre = 63 / 100;
+let abidosIronOre = 825.0 / 100;
+let heavyIronOre = 118.0 / 100;
+let ironOre = 63.0 / 100;
 
-//Hunting
-let abidosMeat = 876 / 100;
-let orehaMeat = 740 / 100;
-let treatedMeat = 127 / 100;
-let thickMeat = 67 / 100;
+// Hunting
+let abidosMeat = 876.0 / 100;
+let orehaMeat = 740.0 / 100;
+let treatedMeat = 127.0 / 100;
+let thickMeat = 67.0 / 100;
+
 
 const orehaFishing = [orehaSolarCarp, redFleshFish, fish];
 const orehaExcavation = [orehaRelic, rareRelic, ancientRelic];
@@ -45,7 +46,7 @@ const abidosMining = [abidosIronOre, heavyIronOre, ironOre];
 const abidosHunting = [abidosMeat, treatedMeat, thickMeat];
 
 
-const materials = Array.from({length: 7}, () => Array(3),fill(0))
+const materials = Array.from({length: 7}, () => Array(3).fill(0))
 
 for (let i = 0; i < 3; i++) {
   materials[0][i] = orehaFishing[i];
@@ -72,22 +73,16 @@ const abidosRevenue = revenue(Abidos,false)
 
 const craftingPrice = Array(7).fill(0)
 
-for (let i = 0 ; i < 7 ; i++){
-  if (i == 0)
-  {
-      //craftingPrice[i] = oreha(materials[i, 0], materials[i, 1], materials[i, 2], true, false, conversion[i]);
-      craftingPrice[i] = oreha(materials[i, 0], materials[i, 1], materials[i, 2], false, conversion[i], false);
-  }
-  else if (i == 1)
-  {
-      //craftingPrice[i] = oreha(materials[i, 0], materials[i, 1], materials[i, 2], false, conversion[i], false);
-      craftingPrice[i] = oreha(materials[i, 0], materials[i, 1], materials[i, 2], true, false, conversion[i]);
-  }
-  else
-  {
-      craftingPrice[i] = abidos(materials[i, 0], materials[i, 1], materials[i, 2], conversion[i]);
+for (let i = 0; i < 7; i++) {
+  if (i === 0) {
+    craftingPrice[i] = oreha(materials[i][0], materials[i][1], materials[i][2], false, conversion[i], false);
+  } else if (i === 1) {
+    craftingPrice[i] = oreha(materials[i][0], materials[i][1], materials[i][2], true, false, conversion[i]);
+  } else {
+    craftingPrice[i] = abidos(materials[i][0], materials[i][1], materials[i][2], conversion[i]);
   }
 }
+
 
 console.log("Fishing Oreha:");
 profit(craftingPrice[0], orehaRevenue);

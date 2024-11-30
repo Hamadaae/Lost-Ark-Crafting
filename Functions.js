@@ -5,10 +5,10 @@ function profit(production, revenue){
   let result = revenue - production
 
   if(result > 0){
-    console.log(`${profit}  Value of profit is :  ${result}  In 40 Crafts would be : + ${result*40}`)
+    console.log(`${profit}  Value of profit is :  ${result}  In 40 Crafts would be :  ${result*40}`)
   }
   else{
-    console.log(`${loss}  Value of loss is :  ${result}  In 40 Crafts would be : + ${result*40}`)
+    console.log(`${loss}  Value of loss is :  ${result}  In 40 Crafts would be :  ${result*40}`)
   }
 }
 
